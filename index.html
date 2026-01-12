@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calque</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="logo">Calque</div>
+
+  <div class="top-controls">
+    <button id="soundToggle" title="sound">🔊</button>
+    <button id="sciToggle" title="scientific calculator">📟</button>
+    <button id="themeToggle" title="theme" aria-pressed="false">🌙</button>
+  </div>
+  <button id="historyToggle" class="history-toggle">🕘</button>
+  <aside id="historyPanel" class="history-panel">
+    <div class="hp-top">
+      <div class="hp-drag"></div>
+      <button id="clearHistory">Clear</button>
+    </div>
+    <br>
+    <div class="hp-group">  <!--Text Content in the History Panel-->
+      <p class="hp-date"></p>
+      <!--THIS PORTION WILL BE ADDED VIA JS-->
+    </div>
+  </aside>
+
+  <!-- <button id="themeToggle" class="theme-toggle" aria-pressed="false">🌙</button> -->
+
+  <main class="calculator">
+    <!-- Display -->
+    <div class="display">
+      <input 
+        type="text" 
+        id="display" 
+        value="0" 
+        readonly
+      >
+    </div>
+    <!-- Buttons -->
+    <!-- MAIN BUTTON GRID -->
+    <div class="buttons">
+      <!-- Row 1 -->
+      <button class="btn action" onclick="clearDisplay()" data-action="clear" title="clear display">C</button>
+      <button class="btn action" onclick="deleteElement()" data-action="delete" title="delete">⌫</button>
+      <button class="btn operator" onclick="appendtoDisplay(this.textContent)" data-operator="%">%</button>
+      <button class="btn operator" onclick="appendtoDisplay(this.textContent)" data-operator="/">÷</button>
+      <!-- Row 2 -->
+      <button class="btn number" onclick="appendtoDisplay(this.textContent)">7</button>
+      <button class="btn number" onclick="appendtoDisplay(this.textContent)">8</button>
+      <button class="btn number" onclick="appendtoDisplay(this.textContent)">9</button>
+      <button class="btn operator" onclick="appendtoDisplay(this.textContent)" data-operator="*">x</button>
+      <!-- Row 3 -->
+      <button class="btn number" onclick="appendtoDisplay(this.textContent)">4</button>
+      <button class="btn number" onclick="appendtoDisplay(this.textContent)">5</button>
+      <button class="btn number" onclick="appendtoDisplay(this.textContent)">6</button>
+      <button class="btn operator" onclick="appendtoDisplay(this.textContent)" data-operator="-">-</button>
+      <!-- Row 4 -->
+      <button class="btn number" onclick="appendtoDisplay(this.textContent)">1</button>
+      <button class="btn number" onclick="appendtoDisplay(this.textContent)">2</button>
+      <button class="btn number" onclick="appendtoDisplay(this.textContent)">3</button>
+      <button class="btn operator" onclick="appendtoDisplay(this.textContent)" data-operator="+">+</button>
+      <!-- Row 5 -->
+      <button class="btn number zero" onclick="appendtoDisplay(this.textContent)">0</button>
+      <button class="btn number" onclick="appendtoDisplay(this.textContent)">.</button>
+      <button class="btn equal" onclick="calculate()" data-action="equals" title="result">=</button>
+    </div>
+    <!-- SCIENTIFIC PANEL (SEPARATE GRID) -->
+    <div class="scientific hidden">
+      <button class="btn scientific" title="r" onclick="applyFunc('sqrt')">√</button>
+      <button class="btn scientific" title="q" onclick="applyFunc('square')">x²</button>
+      <button class="btn scientific" title="s" onclick="applyFunc('sin')">sin</button>
+      <button class="btn scientific" title="c" onclick="applyFunc('cos')">cos</button>
+      <button class="btn scientific" title="t" onclick="applyFunc('tan')">tan</button>
+      <button class="btn scientific" title="^" onclick="applyFunc('power')">xʸ</button>
+      <button class="btn scientific" title="l" onclick="applyFunc('log')">log</button>
+      <button class="btn scientific" onclick="appendtoDisplay('π')">π</button>
+      <!-- parentheses -->
+      <button type="button" class="btn scientific paren" data-value="(">(</button>
+      <button type="button" class="btn scientific paren" data-value=")">)</button>
+    </div>
+
+  </main>
+
+
+  <script src="index.js"></script>
+</body>
+</html>
