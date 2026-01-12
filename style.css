@@ -423,6 +423,9 @@ body {
 
 /*  ==== RESPONSIVE==== */
 @media (max-width: 480px) {
+  body {
+    background: red !important;
+  }
   .logo {
     font-size: 0.95rem;
     top: 18px;
@@ -462,3 +465,4 @@ body {
   }
 
 }
+
